@@ -1,5 +1,41 @@
 # Changelog
 
+## v2.5.0
+
+This release updates Buildroot to 2019.11 with security and bug fix updates
+across Linux packages. Enables dnsd, udhcpd and ifconfig in the default 
+Busybox configuration to support `vintage_net` and `vintage_net_wizard`. 
+See the `nerves_system_br` notes for details.
+
+* Updated dependencies
+  * [nerves_system_br v1.10.0](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.10.0)
+  * Erlang 22.1.8
+  * Linux 4.19.72 with the Beagleboard Debian kernel patches
+
+## v2.4.2
+
+This release updates Buildroot to 2019.08.2 with security and bug fix updates
+across Linux packages. See the `nerves_system_br` notes for details.
+Erlang/OTP is now at 22.1.7.
+
+This release also enables the pinmux helper for changing the pin settings on
+the PocketBeagle and other boards.
+
+For example:
+
+```bash
+iex> cat "/sys/devices/platform/ocp/ocp:P2_30_pinmux/state"
+default
+iex> File.write("/sys/devices/platform/ocp/ocp:P2_30_pinmux/state", "spi_cs")
+:ok
+```
+
+For the PocketBeagle, see
+https://github.com/beagleboard/linux/blob/4.19/arch/arm/boot/dts/am335x-pocketbeagle.dts#L1186
+
+* Updated dependencies
+  * [nerves_system_br v1.9.5](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.9.5)
+
 ## v2.4.1
 
 This release pulls in security and bug fix updates from `nerves_system_br`.
